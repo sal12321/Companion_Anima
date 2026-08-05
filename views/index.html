@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nova — Your AI Companion</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- ===================== SCREEN 1: WELCOME ===================== -->
+<section id="screen-welcome" class="screen active-screen">
+  <div class="glass-card welcome-card">
+    <div class="orb-avatar"><i class="fa-solid fa-heart-pulse"></i></div>
+    <h1 class="display-title">Welcome</h1>
+    <p class="lead-text">I'll be your AI Companion.</p>
+    <p class="sub-text">What should I call you?</p>
+    <input type="text" id="nameInput" class="glass-input" placeholder="Your name" maxlength="40" />
+    <button id="toGenderBtn" class="btn-primary-glow">Next <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
+
+<!-- ===================== SCREEN 2: USER GENDER ===================== -->
+<section id="screen-gender" class="screen">
+  <div class="glass-card">
+    <h2 class="step-title">Select your gender</h2>
+    <div class="option-grid" id="genderOptions">
+      <button class="option-card" data-value="male"><i class="fa-solid fa-mars"></i><span>Male</span></button>
+      <button class="option-card" data-value="female"><i class="fa-solid fa-venus"></i><span>Female</span></button>
+    </div>
+    <button id="toCompanionBtn" class="btn-primary-glow" disabled>Next <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
+
+<!-- ===================== SCREEN 3: COMPANION GENDER ===================== -->
+<section id="screen-companion" class="screen">
+  <div class="glass-card">
+    <h2 class="step-title">Choose your AI Companion</h2>
+    <div class="option-grid" id="companionOptions">
+      <button class="option-card" data-value="male"><i class="fa-solid fa-person"></i><span>Male Companion</span></button>
+      <button class="option-card" data-value="female"><i class="fa-solid fa-person-dress"></i><span>Female Companion</span></button>
+    </div>
+    <button id="toPersonalityBtn" class="btn-primary-glow" disabled>Next <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
+
+<!-- ===================== SCREEN 4: PERSONALITY ===================== -->
+<section id="screen-personality" class="screen">
+  <div class="glass-card">
+    <h2 class="step-title">Choose your companion's personality</h2>
+    <div class="option-grid option-grid-3" id="personalityOptions">
+      <button class="option-card" data-value="friendly"><i class="fa-solid fa-sun"></i><span>Friendly</span></button>
+      <button class="option-card" data-value="supportive"><i class="fa-solid fa-hand-holding-heart"></i><span>Supportive</span></button>
+      <button class="option-card" data-value="funny"><i class="fa-solid fa-face-laugh-beam"></i><span>Funny</span></button>
+    </div>
+    <button id="finishSetupBtn" class="btn-primary-glow" disabled>
+      <span class="btn-label">Meet your companion</span>
+      <span class="btn-spinner d-none"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+    </button>
+  </div>
+</section>
+
+<!-- ===================== SCREEN 5: CHAT ===================== -->
+<section id="screen-chat" class="screen chat-screen">
+  <header class="chat-topbar">
+    <div class="companion-id">
+      <div class="mini-orb"><i class="fa-solid fa-heart-pulse"></i></div>
+      <div>
+        <div class="companion-name" id="companionLabel">Nova</div>
+        <div class="companion-status" id="statusText">online</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="newChatBtn" title="New chat"><i class="fa-solid fa-plus"></i></button>
+      <button class="icon-btn" id="deleteChatBtn" title="Delete conversation"><i class="fa-solid fa-trash"></i></button>
+      <button class="icon-btn" id="muteBtn" title="Mute AI voice"><i class="fa-solid fa-volume-high"></i></button>
+      <button class="icon-btn" id="replayBtn" title="Replay last response"><i class="fa-solid fa-rotate-right"></i></button>
+    </div>
+  </header>
+
+  <div class="messages-area" id="messagesArea"></div>
+
+  <div class="composer-bar">
+    <button class="icon-btn mic-btn" id="micBtn" title="Start listening"><i class="fa-solid fa-microphone"></i></button>
+    <input type="text" id="chatInput" class="glass-input chat-input" placeholder="Type a message..." maxlength="500" />
+    <span class="char-counter" id="charCounter">0/500</span>
+    <button class="icon-btn send-btn" id="sendBtn" title="Send"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+<script src="js/voice.js"></script>
+</body>
+</html>

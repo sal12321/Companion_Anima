@@ -1,0 +1,16 @@
+{
+  "name": "ai-companion",
+  "version": "1.0.0",
+  "description": "Original AI Companion web app (university research project) - conversational AI, voice chat, long-term memory",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0"
+  }
+}
